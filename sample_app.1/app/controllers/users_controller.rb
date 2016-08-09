@@ -7,4 +7,6 @@ class UsersController < ApplicationController
   end
   def cuestionario
   end
+  def pregunta
+  end
 end
