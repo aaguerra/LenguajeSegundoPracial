@@ -1,0 +1,11 @@
+<% provide(:title, "Home") %>
+<div class="center jumbotron">
+  <h1>Bienvenidos a Sample App</h1>
+
+  <h2>
+    Elija la opcion de ingreso
+  </h2>
+
+  <%= link_to "Login Estudiante!", estudiante_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Login Profesor!", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
