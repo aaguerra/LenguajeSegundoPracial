@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass'
+gem 'bcrypt' #gema para husar un cifrado de tipo hash en la contraseña de la aplicacion
 
 
 group :development, :test do
