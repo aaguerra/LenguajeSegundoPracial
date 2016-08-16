@@ -6,7 +6,10 @@
         <li><%= link_to "Home",    root_path %></li>
         <li><%= link_to "Help",    help_path %></li>
         <li><%= link_to "Registro", registrar_path %></li>
+        <li><%= link_to "Cerrar Sesion" , destroy_user_session_path,  method: :get%>
       </ul>
     </nav>
   </div>
 </header>
+<p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>

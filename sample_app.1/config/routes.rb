@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 
+  devise_for :users
   root 'static_pages#home' # asi se setea la pagina de inicio
 
   get  '/help', to: 'static_pages#help'
