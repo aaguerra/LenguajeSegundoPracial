@@ -1,0 +1,28 @@
+<h2>Entrar</h2>
+<div class="center jumbotron">
+<form class="form-signin">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <h4><%= f.label :correo %><br /></h4>
+    <h4><%= f.email_field :email, autofocus: true %></h4>
+  </div>
+
+  <div class="field">
+    <h4><%= f.label :clave %><br />
+    <h4><%= f.password_field :password, autocomplete: "off" %></h4>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :recordarme_clave %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <h4><%= f.submit "Log in" , class: "btn btn-lg btn-primary btn-block"%></h4>
+  </div>
+<% end %>
+</form>
+</div>
+<%= render "devise/shared/links" %>
