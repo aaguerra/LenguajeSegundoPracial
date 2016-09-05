@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h2>Entrar</h2>
 <div class="center jumbotron">
 <form class="form-signin">
@@ -10,19 +11,43 @@
   <div class="field">
     <h4><%= f.label :clave %><br />
     <h4><%= f.password_field :password, autocomplete: "off" %></h4>
+=======
+<h2>Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+>>>>>>> devise
   </div>
 
   <% if devise_mapping.rememberable? -%>
     <div class="field">
       <%= f.check_box :remember_me %>
+<<<<<<< HEAD
       <%= f.label :recordarme_clave %>
+=======
+      <%= f.label :remember_me %>
+>>>>>>> devise
     </div>
   <% end -%>
 
   <div class="actions">
+<<<<<<< HEAD
     <h4><%= f.submit "Log in" , class: "btn btn-lg btn-primary btn-block"%></h4>
   </div>
 <% end %>
 </form>
 </div>
+=======
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+
+>>>>>>> devise
 <%= render "devise/shared/links" %>
