@@ -1,6 +1,6 @@
 <% provide(:title, "Home") %>
 <% content_for :estilo do %>
-  
+
 <% end %>
 
 <div class="center jumbotron">
@@ -11,5 +11,5 @@
   </h2>
 
   <%= link_to "Login Estudiante!", estudiante_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "Login Profesor!", signup_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Login Profesor!", new_user_session_path, class: "btn btn-lg btn-primary" %>
 </div>
