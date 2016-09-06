@@ -1,0 +1,12 @@
+<h1>Crear un nuevo Quiz</h1>
+
+<% @quiz.errors.full_messages.each do |m|%>
+  <%=m%>
+<%end%>
+<%if @quiz.blank?%>
+  <h1>ds</h1>
+<%end%>
+<%= form_for(@quiz)  do |f| %>
+  <h2><%=f.text_field :description, placeholder: "Nombre de su Quiz"%></h2>
+  <%= f.submit "Crear"%>
+<% end %>
