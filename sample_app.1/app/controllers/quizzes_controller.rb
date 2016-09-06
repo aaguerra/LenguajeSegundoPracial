@@ -6,6 +6,8 @@ class QuizzesController < ApplicationController
 
   def show
     @quiz = Quiz.find(params[:id])
+    #ApplicationController.set_quiz(5)
+    @var = set_quiz(@quiz.id)
   end
 #
 

@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
 
+  get 'answers/index'
+
+  get 'answers/new'
+
+  get 'answers/show'
+
   get 'questions/index'
 
   get 'questions/show'
