@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
 
 
+  get 'questions/index'
+
+  get 'questions/show'
+
+  get 'questions/new'
+
   devise_for :users
   root 'static_pages#home' # asi se setea la pagina de inicio
   resources :quizzes
+  resources :questions
   #get '/quizzes/show'#  get '/quizzes'
   get  '/help', to: 'static_pages#help'
   get  '/about' ,    to:  'static_pages#about'

@@ -1,1 +1,3 @@
-<%=@quiz.description%>
+<h1> Ingrese las preguntas para el quiz <strong><%=@quiz.description%></strong><h1>
+<%=@quiz.id%>
+<%= link_to "Nueva pregunta", '/questions/new', class: "btn btn-lg btn-primary" %>

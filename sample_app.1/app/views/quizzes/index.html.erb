@@ -1,4 +1,5 @@
-
 <% @quizzes.each do |quiz|%>
-  <h1><%= quiz.description%></h1>
+  <% if current_user.id == quiz.user_id%>
+    <h1><%= quiz.description%> - Pin <%= quiz.pin%> - <%= link_to "Ir",'/quizzes/'+ quiz.id.to_s%></h1>
+  <%end%>
 <%end%>
