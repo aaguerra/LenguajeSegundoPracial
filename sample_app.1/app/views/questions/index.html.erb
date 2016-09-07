@@ -1,0 +1,6 @@
+<%= link_to "Quiz", '/quizzes/' + @quiz.to_s, class: "btn btn-lg btn-primary" %>
+<% @questions.each do |d|%>
+  <%if @quiz == d.quiz_id%>
+    <h2> <%= d.description%></h2>
+  <%end%>
+<%end%>
