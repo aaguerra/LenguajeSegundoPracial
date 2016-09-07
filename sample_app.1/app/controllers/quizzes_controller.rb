@@ -19,7 +19,8 @@ class QuizzesController < ApplicationController
   def create
     begin
       prng1 = rand(100000..999999)
-      @quiz =current_user.quizzes.new(description: params[:quiz][:description], pin: prng1)
+      @quiz =current_user.quizzes.new(description: params[:quiz][:description], pin: prng1,
+                                      active: true)
       if @quiz.save
         redirect_to '/quizzes/'+ @quiz.id.to_s
       else
@@ -30,7 +31,14 @@ class QuizzesController < ApplicationController
        logger.debug "Inicado en quiz"
        begin
            logger.debug @quiz.description
-           redirect_to '/estudiante/cuestionario'
+           if @quiz.active
+             redirect_to '/estudiante/cuestionario'
+           else
+             respond_to do |format|
+               format.html { redirect_to '/', notice: 'Chatroom was successfully updated.' }
+             end
+             #redirect_to '/'
+           end
            set_error(0)
            @error = get_error
        rescue
@@ -42,5 +50,14 @@ class QuizzesController < ApplicationController
     end
   end
 
+  def edit
+    @quiz = Quiz.find(params[:id])
+    @var = set_quiz(@quiz.id)
+  end
+
+  def update
+    @quiz = Quiz.find(params[:id])
+    @quiz.update(description: params[:quiz][:description])
+  end
 
 end

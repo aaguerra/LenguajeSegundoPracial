@@ -1,6 +1,12 @@
 <%= link_to "Home", '/', class: "btn btn-lg btn-primary" %>
+<%estado = ""%>
 <% @quizzes.each do |quiz|%>
   <% if current_user.id == quiz.user_id%>
-  <h1><%= quiz.description%> - Pin <%= quiz.pin%> - <%= link_to "Ir",'/quizzes/'+ quiz.id.to_s%></h1>
+  <%if quiz.active%>
+    <%estado = "Activo"%>
+  <%else%>
+    <%estado = ""%>
+  <%end%>
+  <h1><%= quiz.description%> - Pin <%= quiz.pin%> - <%=estado%>- <%= link_to "Ir",'/quizzes/'+ quiz.id.to_s%> - <%= link_to "Editar", '/quizzes/'+ quiz.id.to_s+'/edit'%></h1>
   <%end%>
 <%end%>

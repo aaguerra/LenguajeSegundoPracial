@@ -1,0 +1,13 @@
+<%= form_for(quiz) do |f| %>
+  <div class="field">
+    <%= f.label :Pregunta %>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :Usando %>
+    <%= f.text_field :active %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
