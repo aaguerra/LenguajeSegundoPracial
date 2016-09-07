@@ -25,17 +25,31 @@ class StudentsController < ApplicationController
 
   def create
     @quiz_student = get_quiz_student
-
+    bandera = true
     @student = Student.new(name: params[:student][:name], quiz_id: @quiz_student)
-
-    if @student.save
-        redirect_to '/estudiante/cuestionario'
-        @st = Student.find(@student.id)
-    else
+    begin
+      student_quiz_id = Student.find_by(quiz_id: @student.quiz_id, name: @student.name)
+      if @student.name.empty?
+        bandera = false
         respond_to do |format|
-          format.html { redirect_to '/students/new', notice: 'Ingrese el nombre' }
+          format.html { redirect_to '/students/new', notice: 'No hay nombre'+@student.name }
+        end
+      elsif student_quiz_id.name.eql? @student.name and student_quiz_id.quiz_id.eql? @quiz_student
+        bandera = false
+        respond_to do |format|
+          format.html { redirect_to '/students/new', notice: 'Mismo nombre' }
+        end
+      end
+    rescue
+
+    end
+    if bandera
+      @student.save
+        respond_to do |format|
+          format.html { redirect_to '/estudiante/cuestionario', notice: 'Haga su cuestionario'}
         end
     end
+
   end
 
   def login
