@@ -46,7 +46,7 @@ class StudentsController < ApplicationController
     if bandera
       @student.save
         respond_to do |format|
-          format.html { redirect_to '/estudiante/cuestionario', notice: 'Haga su cuestionario'}
+          format.html { redirect_to '/questionnaires', notice: 'Haga su cuestionario'}
         end
     end
 

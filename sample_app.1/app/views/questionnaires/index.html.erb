@@ -1,0 +1,16 @@
+<%= @quiz%>
+<h1>Preguntas</h1>
+<% @questions.each do |q|%>
+  <%if @quiz == q.quiz_id%>
+    <h2><%= q.description%> - <%= q.id%></h2>
+      <% @answers.each do |a|%>
+        <%if a.question_id == q.id%>
+          <h3><%= a.description%></h3>
+        <%end%>
+      <%end%>
+  <%end%>
+  <%yield%>
+<%end%>
+
+<h1>Questionnaires#index</h1>
+<p>Find me in app/views/questionnaires/index.html.erb</p>
