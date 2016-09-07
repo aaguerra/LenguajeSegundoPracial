@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+
+
   resources :answers
+
+  resources :students
 
   devise_for :users
   root 'static_pages#home' # asi se setea la pagina de inicio

@@ -1,0 +1,7 @@
+<% @quizzes.each do |q| %>
+<%= q.id%>
+<% end %>
+
+<% form_for (@quiz) do |qz|%>
+  <%=qz.text_field :pin, placeholder: "pin"%>
+<%end%>

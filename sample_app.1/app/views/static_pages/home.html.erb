@@ -10,7 +10,7 @@
       Elija la opcion de ingreso
     </h2>
 
-    <%= link_to "Login Estudiante!", estudiante_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "Login Estudiante!", 'students/new', class: "btn btn-lg btn-primary" %>
     <%= link_to "Login Profesor!", new_user_session_path, class: "btn btn-lg btn-primary" %>
   <%else%>
     <h2>
