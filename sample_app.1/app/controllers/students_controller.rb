@@ -45,6 +45,7 @@ class StudentsController < ApplicationController
     end
     if bandera
       @student.save
+        set_student_id(@student.id)
         respond_to do |format|
           format.html { redirect_to '/questionnaires', notice: 'Haga su cuestionario'}
         end

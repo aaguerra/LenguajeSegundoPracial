@@ -1,5 +1,5 @@
-<%= @quiz%>
 <h1>Preguntas</h1>
+<h3>Estudiante id</h3><%=@student_id_local%>
 <% @questions.each do |q|%>
   <%if @quiz == q.quiz_id%>
     <h2><%= q.description%> - <%= q.id%></h2>
@@ -12,5 +12,4 @@
   <%yield%>
 <%end%>
 
-<h1>Questionnaires#index</h1>
-<p>Find me in app/views/questionnaires/index.html.erb</p>
+<%= @array_preguntas%>
