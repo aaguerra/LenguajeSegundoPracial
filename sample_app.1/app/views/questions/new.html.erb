@@ -1,5 +1,10 @@
 <h1>Ingrese pregunta</h1>
 <%=form_for (@question) do |q|%>
   <%=q.text_field :description, placeholder: "Pregunta"%>
-  <%=q.submit "Guardar"%>
+  <%=q.text_field :answer_one, placeholder: "Respuesta uno"%>
+  <%=q.text_field :answer_two, placeholder: "Respuesta dos"%>
+  <%=q.text_field :answer_three, placeholder: "Respuesta tres"%>
+  <%=q.text_field :answer_four, placeholder: "Respuesta cuatro"%>
+  <%=q.text_field :correct, placeholder: "Respuesta valida"%>
+  <%= q.submit "Guardar"%>
 <%end%>

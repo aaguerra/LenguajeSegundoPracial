@@ -1,17 +1,5 @@
 Rails.application.routes.draw do
-
-
-  get 'answers/index'
-
-  get 'answers/new'
-
-  get 'answers/show'
-
-  get 'questions/index'
-
-  get 'questions/show'
-
-  get 'questions/new'
+  resources :answers
 
   devise_for :users
   root 'static_pages#home' # asi se setea la pagina de inicio
