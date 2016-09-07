@@ -32,10 +32,11 @@ class QuizzesController < ApplicationController
        begin
            logger.debug @quiz.description
            if @quiz.active
-             redirect_to '/estudiante/cuestionario'
+             redirect_to '/students/new'
+             set_quiz_student(@quiz.id)
            else
              respond_to do |format|
-               format.html { redirect_to '/students/new', notice: 'No existe con ese codigo' }
+               format.html { redirect_to '/students', notice: 'No existe con ese codigo' }
 
              end
              #redirect_to '/'
@@ -47,7 +48,7 @@ class QuizzesController < ApplicationController
             set_error(1)
             @error = get_error
             respond_to do |format|
-              format.html { redirect_to '/students/new', notice: 'No existe con ese codigo' }
+              format.html { redirect_to '/students', notice: 'No existe con ese codigo' }
               format.json { render json: @quiz.errors, status: :unprocessable_entity }
             end
        end

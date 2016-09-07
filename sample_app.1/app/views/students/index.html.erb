@@ -1,3 +1,12 @@
+<%= form_for @quiz do |f|%>
+  <%= f.label :pin%>
+  <%= f.text_field :pin%>
+  <%= f.submit "Iniciar quiz"%>
+<%end%>
+
 <% @quizzes.each do |q| %>
 <%= q.pin%>
 <% end %>
+<%if @error == 1%>
+  <%=render partial: 'layouts/error' %>
+<%end%>
