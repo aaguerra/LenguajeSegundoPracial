@@ -64,4 +64,8 @@ class QuizzesController < ApplicationController
     @quiz.update(description: params[:quiz][:description])
   end
 
+  def destroy
+    @quiz.destroy
+  end
+
 end

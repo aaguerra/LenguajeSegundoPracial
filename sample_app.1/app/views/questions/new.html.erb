@@ -1,10 +1,20 @@
 <h1>Ingrese pregunta</h1>
+<% if @question.errors.any? %>
+  <%= 5%>
+<% end %>
 <%=form_for (@question) do |q|%>
   <%=q.text_field :description, placeholder: "Pregunta"%>
   <%=q.text_field :answer_one, placeholder: "Respuesta uno"%>
   <%=q.text_field :answer_two, placeholder: "Respuesta dos"%>
   <%=q.text_field :answer_three, placeholder: "Respuesta tres"%>
   <%=q.text_field :answer_four, placeholder: "Respuesta cuatro"%>
-  <%=q.text_field :correct, placeholder: "Respuesta valida"%>
+  <%= label :correct, "uno" %>
+  <%= q.radio_button :correct, 1 , :checked => true , :value => false %>
+  <%= label :correct, "dos" %>
+  <%= q.radio_button :correct, 2 , :checked => true , :value => false %>
+  <%= label :correct, "tres" %>
+  <%= q.radio_button :correct, 3 , :checked => true , :value => false %>
+  <%= label :correct, "cuatro" %>
+  <%= q.radio_button :correct, 4 , :checked => true , :value => false %>
   <%= q.submit "Guardar"%>
 <%end%>

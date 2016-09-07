@@ -7,6 +7,6 @@
   <%else%>
     <%estado = ""%>
   <%end%>
-  <h1><%= quiz.description%> - Pin <%= quiz.pin%> - <%=estado%>- <%= link_to "Ir",'/quizzes/'+ quiz.id.to_s%> - <%= link_to "Editar", '/quizzes/'+ quiz.id.to_s+'/edit'%></h1>
+  <h1><%= quiz.description%> - Pin <%= quiz.pin%> - <%=estado%>- <%= link_to "Ir",'/quizzes/'+ quiz.id.to_s%></h1>
   <%end%>
 <%end%>
