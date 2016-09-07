@@ -35,7 +35,8 @@ class QuizzesController < ApplicationController
              redirect_to '/estudiante/cuestionario'
            else
              respond_to do |format|
-               format.html { redirect_to '/', notice: 'Chatroom was successfully updated.' }
+               format.html { redirect_to '/students/new', notice: 'No existe con ese codigo' }
+
              end
              #redirect_to '/'
            end
@@ -45,7 +46,10 @@ class QuizzesController < ApplicationController
             logger.debug "no existe el quiz"
             set_error(1)
             @error = get_error
-            redirect_to '/'
+            respond_to do |format|
+              format.html { redirect_to '/students/new', notice: 'No existe con ese codigo' }
+              format.json { render json: @quiz.errors, status: :unprocessable_entity }
+            end
        end
     end
   end
