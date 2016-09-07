@@ -4,31 +4,6 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-<<<<<<< HEAD
-    <h4><%= f.label :correo %><br /></h4>
-    <h4><%= f.email_field :email, autofocus: true %></h4>
-  </div>
-
-  <div class="field">
-    <h4><%= f.label :clave %></h4>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <h4><%= f.password_field :password, autocomplete: "off" %></h4>
-  </div>
-
-  <div class="field">
-    <h4><%= f.label :confirmar_clave %><br /></h4>
-    <h4><%= f.password_field :password_confirmation, autocomplete: "off" %></h4>
-  </div>
-
-  <div class="actions">
-    <h4><%= f.submit "Sign up", class: "btn btn-lg btn-primary btn-block" %></h4>
-  </div>
-<% end %>
-</form>
-</div>
-=======
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
@@ -50,6 +25,4 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
->>>>>>> devise
 <%= render "devise/shared/links" %>
