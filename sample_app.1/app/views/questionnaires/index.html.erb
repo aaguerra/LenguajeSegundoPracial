@@ -1,4 +1,5 @@
 <%a1=0;a2=0;a3=0;a4=0%>
+<%n_valida = 0%>
 <h1>Preguntas</h1>
 <h3>Estudiante id</h3><%=@student_id_local%>
     <h2><%= @question.description%> - <%= @question.id%></h2>
@@ -15,17 +16,22 @@
             <%a4 = a.id%>
           <% end %>
           <%contador = contador + 1%>
+          <%if a.correct%>
+              <%=n_valida = contador %>
+          <%end%>
       <%end%>
   <%yield%>
 
 <%=form_for(@response) do |q|%>
-  <%= label :answer_id, "uno" %>
+  <%= q.hidden_field :estudiante_id, :value => @student_id_local %>
+  <%= q.hidden_field :quiz_id, :value => @quiz %>
   <%= q.radio_button :answer_id, a1 , :checked => true , :value => false %>
-  <%= label :answer_id, "dos" %>
+  <%= q.label :answer_id, "uno" %>
   <%= q.radio_button :answer_id, a2 , :checked => true , :value => false %>
-  <%= label :answer_id, "tres" %>
+  <%= q.label :answer_id, "dos" %>
   <%= q.radio_button :answer_id, a3, :checked => true , :value => false %>
-  <%= label :answer_id, "cuatro" %>
+  <%= q.label :answer_id, "tres" %>
   <%= q.radio_button :answer_id, a4 , :checked => true , :value => false %>
+  <%= q.label :answer_id, "cuatro" %>
   <%= q.submit "Guardar"%>
 <%end%>

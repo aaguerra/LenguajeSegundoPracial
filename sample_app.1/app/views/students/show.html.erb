@@ -1,2 +1,19 @@
-<h1>Students#show</h1>
-<p>Find me in app/views/students/show.html.erb</p>
+<%= link_to "Quiz", '/quizzes/'+@quiz_id.to_s, class: "btn btn-lg btn-primary" %>
+<h1>Estudiantes registrados</h1>
+
+<%@students_quiz.each do |a|%>
+    <%contador = 0%>
+    <h2>  <%= a.name%></h2>
+    <%@respuestas_quiz.each do |sq|%>
+      <%if sq.id == a.id%>
+        <%= sq.description%>
+        <% if sq.correct%>
+            <p><strong>correcta</strong></p>
+            <%contador = contador + 1%>
+        <%else%>
+            <p><strong>incorrecta</strong></p>
+        <%end%>
+      <%end%>
+    <%end%>
+    <p>Numero de acertadas<strong>  <%=contador%></strong></p>
+<%end%>

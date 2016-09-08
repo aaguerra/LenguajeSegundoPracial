@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :quizzes
   resources :questions
   #get '/quizzes/show'#  get '/quizzes'
+  get  '/students/todos'
   get  '/help', to: 'static_pages#help'
   get  '/about' ,    to:  'static_pages#about'
   get   '/contact' ,  to:  'static_pages#contact'
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   get  '/estudiante/cuestionario',  to: 'users#cuestionario' , as: 'cuestionario'
   get  '/profesor/pregunta',  to: 'users#pregunta' , as: 'pregunta'
   get  '/estudiante/terminado',  to: 'users#terminado' , as: 'terminado'
+  get  '/respuestapregutna/:quiz/:user_id/',  to: 'questionnaires#index' , as: 'respuestapregutnaindex'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
