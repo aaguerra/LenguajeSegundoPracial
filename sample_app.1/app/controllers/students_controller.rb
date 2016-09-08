@@ -38,7 +38,7 @@ class StudentsController < ApplicationController
         bandera = false
         respond_to do |format|
           set_student_id = @student.id
-          format.html { redirect_to '/questionnaires', notice: 'Estudiante ya registradp' }
+          format.html { redirect_to '/respuestapregutna/'+@quiz_student.to_s+'/'+@student.id.to_s+'/', notice: 'Estudiante ya registradp' }
         end
       end
     rescue
@@ -48,7 +48,7 @@ class StudentsController < ApplicationController
       @student.save
         set_student_id(@student.id)
         respond_to do |format|
-          format.html { redirect_to '/questionnaires', notice: 'Nuevo estudiante, comienze su cuestionario'}
+          format.html { redirect_to '/respuestapregutna/'+@quiz_student.to_s+'/'+@student.id.to_s+'/', notice: 'Nuevo estudiante, comienze su cuestionario'}
         end
     end
 

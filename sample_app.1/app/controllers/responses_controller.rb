@@ -7,10 +7,9 @@ class ResponsesController < ApplicationController
   end
 
   def create
-    studiante = get_student_id
-    @response = Response.new(answer_id: params[:response][:answer_id],student_id: studiante)
+    @response = Response.new(answer_id: params[:response][:answer_id],student_id: params[:response][:estudiante_id])
     @response.save
-    redirect_to 'questionnaires/'
+    redirect_to '/respuestapregutna/'+(params[:response][:quiz_id]).to_s+'/'+(params[:response][:estudiante_id]).to_s+'/'
   end
 
   def show

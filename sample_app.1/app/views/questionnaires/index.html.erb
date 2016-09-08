@@ -19,6 +19,8 @@
   <%yield%>
 
 <%=form_for(@response) do |q|%>
+  <%= q.hidden_field :estudiante_id, :value => @student_id_local %>
+  <%= q.hidden_field :quiz_id, :value => @quiz %>
   <%= label :answer_id, "uno" %>
   <%= q.radio_button :answer_id, a1 , :checked => true , :value => false %>
   <%= label :answer_id, "dos" %>
