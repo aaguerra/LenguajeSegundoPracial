@@ -1,9 +1,31 @@
+<%a1=0;a2=0;a3=0;a4=0%>
 <h1>Preguntas</h1>
 <h3>Estudiante id</h3><%=@student_id_local%>
     <h2><%= @question.description%> - <%= @question.id%></h2>
+      <%contador = 0%>
       <% @answers.each do |a|%>
           <h3><%= a.description%></h3>
+          <%if contador == 0%>
+            <%a1 = a.id%>
+          <%elsif contador == 1%>
+            <%a2 = a.id%>
+          <% elsif contador == 2 %>
+            <%a3 = a.id%>
+          <% elsif contador == 3 %>
+            <%a4 = a.id%>
+          <% end %>
+          <%contador = contador + 1%>
       <%end%>
   <%yield%>
 
-<%= @array_preguntas%>
+<%=form_for(@response) do |q|%>
+  <%= label :answer_id, "uno" %>
+  <%= q.radio_button :answer_id, a1 , :checked => true , :value => false %>
+  <%= label :answer_id, "dos" %>
+  <%= q.radio_button :answer_id, a2 , :checked => true , :value => false %>
+  <%= label :answer_id, "tres" %>
+  <%= q.radio_button :answer_id, a3, :checked => true , :value => false %>
+  <%= label :answer_id, "cuatro" %>
+  <%= q.radio_button :answer_id, a4 , :checked => true , :value => false %>
+  <%= q.submit "Guardar"%>
+<%end%>

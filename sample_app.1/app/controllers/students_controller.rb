@@ -37,7 +37,8 @@ class StudentsController < ApplicationController
       elsif student_quiz_id.name.eql? @student.name and student_quiz_id.quiz_id.eql? @quiz_student
         bandera = false
         respond_to do |format|
-          format.html { redirect_to '/students/new', notice: 'Mismo nombre' }
+          set_student_id = @student.id
+          format.html { redirect_to '/questionnaires', notice: 'Estudiante ya registradp' }
         end
       end
     rescue
@@ -47,7 +48,7 @@ class StudentsController < ApplicationController
       @student.save
         set_student_id(@student.id)
         respond_to do |format|
-          format.html { redirect_to '/questionnaires', notice: 'Haga su cuestionario'}
+          format.html { redirect_to '/questionnaires', notice: 'Nuevo estudiante, comienze su cuestionario'}
         end
     end
 
