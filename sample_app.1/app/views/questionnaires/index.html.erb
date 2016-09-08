@@ -1,15 +1,9 @@
 <h1>Preguntas</h1>
 <h3>Estudiante id</h3><%=@student_id_local%>
-<% @questions.each do |q|%>
-  <%if @quiz == q.quiz_id%>
-    <h2><%= q.description%> - <%= q.id%></h2>
+    <h2><%= @question.description%> - <%= @question.id%></h2>
       <% @answers.each do |a|%>
-        <%if a.question_id == q.id%>
           <h3><%= a.description%></h3>
-        <%end%>
       <%end%>
-  <%end%>
   <%yield%>
-<%end%>
 
 <%= @array_preguntas%>
