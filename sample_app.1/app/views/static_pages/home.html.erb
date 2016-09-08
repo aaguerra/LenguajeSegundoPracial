@@ -4,17 +4,17 @@
 <% end %>
 
 <div class="center jumbotron">
-  <h1>Bienvenido a Sample App </h1>
+  <h1>Bienvenido a Proyecto </h1>
   <%unless user_signed_in?%>
     <h2>
-      Elija la opcion de ingreso
+      Ingrese
     </h2>
 
     <%= link_to "Login Estudiante!", 'students/', class: "btn btn-lg btn-primary" %>
     <%= link_to "Login Profesor!", new_user_session_path, class: "btn btn-lg btn-primary" %>
   <%else%>
     <h2>
-      Ingrese sus preguntas
+      Ingrese Opcion
     </h2>
     <%= link_to "Crear Cuestionario", '/quizzes/new', class: "btn btn-lg btn-primary" %>
     <%= link_to "Mis cuestionarios", '/quizzes', class: "btn btn-lg btn-primary" %>

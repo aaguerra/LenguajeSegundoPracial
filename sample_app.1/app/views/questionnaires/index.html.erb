@@ -1,23 +1,21 @@
 <%a1=0;a2=0;a3=0;a4=0%>
 <%n_valida = 0%>
-<h1>Preguntas</h1>
-<h3>Estudiante id</h3><%=@student_id_local%>
-    <h2><%= @question.description%> - <%= @question.id%></h2>
-      <%contador = 0%>
+    <h2><strong><%= @question.description%></strong></h2>
+      <%contador = 1%>
       <% @answers.each do |a|%>
-          <h3><%= a.description%></h3>
-          <%if contador == 0%>
-            <%a1 = a.id%>
-          <%elsif contador == 1%>
+          <h3>  <%=contador%>) <%= a.description%></h3>
+          <%if contador == 1%>
+                <%a1 = a.id%>
+          <%elsif contador == 2%>
             <%a2 = a.id%>
-          <% elsif contador == 2 %>
-            <%a3 = a.id%>
           <% elsif contador == 3 %>
+            <%a3 = a.id%>
+          <% elsif contador == 4 %>
             <%a4 = a.id%>
           <% end %>
           <%contador = contador + 1%>
           <%if a.correct%>
-              <%=n_valida = contador %>
+              <%n_valida = contador %>
           <%end%>
       <%end%>
   <%yield%>
@@ -26,12 +24,12 @@
   <%= q.hidden_field :estudiante_id, :value => @student_id_local %>
   <%= q.hidden_field :quiz_id, :value => @quiz %>
   <%= q.radio_button :answer_id, a1 , :checked => true , :value => false %>
-  <%= q.label :answer_id, "uno" %>
+  <%= q.label :answer_id, "1" %>
   <%= q.radio_button :answer_id, a2 , :checked => true , :value => false %>
-  <%= q.label :answer_id, "dos" %>
+  <%= q.label :answer_id, "2" %>
   <%= q.radio_button :answer_id, a3, :checked => true , :value => false %>
-  <%= q.label :answer_id, "tres" %>
+  <%= q.label :answer_id, "3" %>
   <%= q.radio_button :answer_id, a4 , :checked => true , :value => false %>
-  <%= q.label :answer_id, "cuatro" %>
+  <%= q.label :answer_id, "4" %>
   <%= q.submit "Guardar"%>
 <%end%>

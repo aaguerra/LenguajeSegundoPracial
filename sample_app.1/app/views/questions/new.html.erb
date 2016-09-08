@@ -1,13 +1,17 @@
+<%= link_to "Quiz", '/quizzes/'+@quiz.to_s, class: "btn btn-lg btn-primary" %>
+<% @question.errors.full_messages.each do |m|%>
+  <%=m%>
+<%end%>
+<% @answer.errors.full_messages.each do |m|%>
+  <%=m%>
+<%end%>
 <h1>Ingrese pregunta</h1>
-<% if @question.errors.any? %>
-  <%= 5%>
-<% end %>
-<%=form_for (@question) do |q|%>
-  <%=q.text_field :description, placeholder: "Pregunta"%>
-  <%=q.text_field :answer_one, placeholder: "Respuesta uno"%>
-  <%=q.text_field :answer_two, placeholder: "Respuesta dos"%>
-  <%=q.text_field :answer_three, placeholder: "Respuesta tres"%>
-  <%=q.text_field :answer_four, placeholder: "Respuesta cuatro"%>
+<%=bootstrap_form_for(@question, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-8") do |q|%>
+  <%=q.text_field :description, placeholder: "Pregunta",label: "Pregunta"%>
+  <%=q.text_field :answer_one, placeholder: "Respuesta uno",label: "Respuesta uno"%>
+  <%=q.text_field :answer_two, placeholder: "Respuesta dos",label: "Respuesta dos"%>
+  <%=q.text_field :answer_three, placeholder: "Respuesta tres",label: "Respuesta tres"%>
+  <%=q.text_field :answer_four, placeholder: "Respuesta cuatro",label: "Respuesta cuatro"%>
   <%= label :correct, "uno" %>
   <%= q.radio_button :correct, 1 , :checked => true , :value => false %>
   <%= label :correct, "dos" %>

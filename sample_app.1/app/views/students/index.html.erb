@@ -1,12 +1,7 @@
-<%= form_for @quiz do |f|%>
-  <%= f.label :pin%>
-  <%= f.text_field :pin%>
-  <%= f.submit "Iniciar quiz"%>
+<%= bootstrap_form_for(@quiz, label_col: "col-sm-2", control_col: "col-sm-10") do |f|%>
+  <%= f.text_field :pin, label: 'Ingrese el PIN del QUIZ'%>
+  <%= f.submit "Iniciar quiz",class: "btn btn-success"%>
 <%end%>
-
-<% @quizzes.each do |q| %>
-<%= q.pin%>
-<% end %>
 <%if @error == 1%>
   <%=render partial: 'layouts/error' %>
 <%end%>

@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    @quiz = get_quiz
     @question = Question.new
     @answer = Answer.new
     @answer2 = Answer.new

@@ -1,6 +1,5 @@
 <h2>Nombre del Quiz: <%=@quiz_u.description%> </h2>
-<%= form_for @student do |f|%>
-  <%= f.label :name%>
-  <%= f.text_field :name%>
-  <%= f.submit "Iniciar"%>
+<%= bootstrap_form_for @student do |f|%>
+  <%= f.text_field :name, label: "Ingrese el User"%>
+  <%= f.submit "Iniciar",class: "btn btn-success"%>
 <%end%>
