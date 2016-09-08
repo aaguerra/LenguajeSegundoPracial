@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get  '/profesor/registrar',  to: 'users#registrar' , as: 'registrar'
   get  '/estudiante/cuestionario',  to: 'users#cuestionario' , as: 'cuestionario'
   get  '/profesor/pregunta',  to: 'users#pregunta' , as: 'pregunta'
+  get  '/estudiante/terminado',  to: 'users#terminado' , as: 'terminado'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
