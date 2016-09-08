@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'teacher/index'
+
+  get 'teacher/new'
+
+  get 'teacher/show'
+
   resources :responses
 
   resources :questionnaires

@@ -1,24 +1,34 @@
-<%= link_to "Quiz", '/quizzes/'+@quiz.to_s, class: "btn btn-lg btn-primary" %>
-<% @question.errors.full_messages.each do |m|%>
-  <%=m%>
+<%contador = 0%>
+<%@quiz_contar.each do |m|%>
+  <%contador = contador +1%>
 <%end%>
-<% @answer.errors.full_messages.each do |m|%>
-  <%=m%>
-<%end%>
-<h1>Ingrese pregunta</h1>
-<%=bootstrap_form_for(@question, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-8") do |q|%>
-  <%=q.text_field :description, placeholder: "Pregunta",label: "Pregunta"%>
-  <%=q.text_field :answer_one, placeholder: "Respuesta uno",label: "Respuesta uno"%>
-  <%=q.text_field :answer_two, placeholder: "Respuesta dos",label: "Respuesta dos"%>
-  <%=q.text_field :answer_three, placeholder: "Respuesta tres",label: "Respuesta tres"%>
-  <%=q.text_field :answer_four, placeholder: "Respuesta cuatro",label: "Respuesta cuatro"%>
-  <%= label :correct, "uno" %>
-  <%= q.radio_button :correct, 1 , :checked => true , :value => false %>
-  <%= label :correct, "dos" %>
-  <%= q.radio_button :correct, 2 , :checked => true , :value => false %>
-  <%= label :correct, "tres" %>
-  <%= q.radio_button :correct, 3 , :checked => true , :value => false %>
-  <%= label :correct, "cuatro" %>
-  <%= q.radio_button :correct, 4 , :checked => true , :value => false %>
-  <%= q.submit "Guardar"%>
+<%if contador >= 5%>
+  <h1> No pude crear mas de 5 pregunta</h1>
+<%else%>
+  <%= link_to "Quiz", '/quizzes/'+@quiz.to_s, class: "btn btn-lg btn-primary" %>
+  <% @question.errors.full_messages.each do |m|%>
+    <%=m%>
+  <%end%>
+  <% @answer.errors.full_messages.each do |m|%>
+    <%=m%>
+  <%end%>
+  <h1>Ingrese pregunta</h1>
+  <%=bootstrap_form_for(@question, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-8") do |q|%>
+    <%=q.text_field :description, placeholder: "Pregunta",label: "Pregunta"%>
+    <%=q.text_field :answer_one, placeholder: "Respuesta uno",label: "Respuesta uno"%>
+    <%=q.text_field :answer_two, placeholder: "Respuesta dos",label: "Respuesta dos"%>
+    <%=q.text_field :answer_three, placeholder: "Respuesta tres",label: "Respuesta tres"%>
+    <%=q.text_field :answer_four, placeholder: "Respuesta cuatro",label: "Respuesta cuatro"%>
+    <%= label :correct, "uno" %>
+    <%= q.radio_button :correct, 1 , :checked => true , :value => false %>
+    <%= label :correct, "dos" %>
+    <%= q.radio_button :correct, 2 , :checked => true , :value => false %>
+    <%= label :correct, "tres" %>
+    <%= q.radio_button :correct, 3 , :checked => true , :value => false %>
+    <%= label :correct, "cuatro" %>
+    <%= q.radio_button :correct, 4 , :checked => true , :value => false %>
+    <%= q.text_field :puntuation, placeholder: "Puntuacion" %>
+    <%= q.submit "Guardar"%>
+  <%end%>
+
 <%end%>

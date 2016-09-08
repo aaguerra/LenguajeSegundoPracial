@@ -6,7 +6,12 @@
     <h2>  <%= a.name%></h2>
     <%@respuestas_quiz.each do |sq|%>
       <%if sq.id == a.id%>
-        <%= sq.description%>
+        <p>Pregunta :  <%= sq.description%> </p>
+      <%@answers.each do |ans|%>
+        <%if ans.id == sq.answer_id%>
+            <h4> Puntuacion pregunta :<%= ans.puntuation%></h4>
+        <%end%>
+      <%end%>
         <% if sq.correct%>
             <p><strong>correcta</strong></p>
             <%contador = contador + 1%>

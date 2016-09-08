@@ -13,7 +13,7 @@ class StudentsController < ApplicationController
     @answers = Answer.all
     @responses = Response.all
     @students_quiz = Student.find_by_sql("SELECT * FROM students where quiz_id ="+@quiz_id.to_s)
-    @respuestas_quiz = Answer.find_by_sql("SELECT s.id,a.description,a.correct FROM students as s,responses as r, answers as a where s.quiz_id ="+@quiz_id.to_s+" and s.id = r.student_id and r.answer_id = a.id" )
+    @respuestas_quiz = Answer.find_by_sql("SELECT s.id,a.description,a.correct,r.answer_id FROM students as s,responses as r, answers as a where s.quiz_id ="+@quiz_id.to_s+" and s.id = r.student_id and r.answer_id = a.id" )
   end
 
   def new

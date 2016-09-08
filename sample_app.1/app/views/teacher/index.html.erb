@@ -1,0 +1,6 @@
+<%total = 0%>
+<h1>Terminado su test</h1>
+<%=@quiz%>
+<%@total.each do |t|%>
+  <h1> La puntuacion total es<%total = total + t.puntuation%></h1>
+<%end%>

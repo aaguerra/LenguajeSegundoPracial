@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160907062648) do
+ActiveRecord::Schema.define(version: 20160908164633) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "description"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160907062648) do
     t.datetime "updated_at",  null: false
     t.integer  "question_id"
     t.boolean  "correct"
+    t.integer  "puntuation"
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160907062648) do
     t.string   "answer_three"
     t.string   "answer_four"
     t.integer  "correct"
+    t.integer  "puntuation"
     t.index ["quiz_id"], name: "index_questions_on_quiz_id"
   end
 
