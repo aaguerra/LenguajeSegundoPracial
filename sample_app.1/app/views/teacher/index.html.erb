@@ -1,6 +1,18 @@
 <%total = 0%>
+<%total_constestadas = 0%>
 <h1>Terminado su test</h1>
-<%=@quiz%>
 <%@total.each do |t|%>
-  <h1> La puntuacion total es<%total = total + t.puntuation%></h1>
+  <%total = total + t.puntuation%>
+<%end%>
+<h1> La puntuacion total es <%=total%></h1>
+<%@respuestas_quiz.each do |a|%>
+  <%if a.st == @student.to_i %>
+        <%if a.correct%>
+          <%total_constestadas = total_constestadas+a.puntuation%>
+        <%end%>
+  <%end%>
+<%end%>
+<h1>Total de correcta puntutacion <%=total_constestadas %></h1>
+<%if total_constestadas == 500 %>
+  <h1>Felicitaciones contesto todas</h1>
 <%end%>

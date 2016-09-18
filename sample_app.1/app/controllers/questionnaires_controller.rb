@@ -14,8 +14,9 @@ class QuestionnairesController < ApplicationController
         @student_id_local = get_student_id
     rescue
       set_quiz_terminar(@quiz)
+      set_student_id(@student_id_local)
       respond_to do |format|
-        format.html { redirect_to '/teacher/index', notice: 'Su puntuacion es' }
+        format.html { redirect_to '/teacher/index', notice: 'Su puntuacion es' + @student_id_local.to_s}
       end
     end
   end
